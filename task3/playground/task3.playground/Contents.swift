@@ -1,106 +1,106 @@
 import Cocoa
 import Foundation
-//for number in 1...100 {
-//    if number % 3 == 0 && number % 5 == 0 {
-//        print("FizzBuzz")
-//    } else if number % 3 == 0 {
-//        print("Fizz")
-//    } else if number % 5 == 0 {
-//        print("Buzz")
-//    } else {
-//        print(number)
-//    }
-//}
+for number in 1...100 {
+    if number % 3 == 0 && number % 5 == 0 {
+        print("FizzBuzz")
+    } else if number % 3 == 0 {
+        print("Fizz")
+    } else if number % 5 == 0 {
+        print("Buzz")
+    } else {
+        print(number)
+    }
+}
 
 
-//func isPrime(_ number: Int) -> Bool {
-//    if number < 2 {
-//        return false
-//    }
-//    
-//    for i in 2..<number {
-//        if number % i == 0 {
-//            return false
-//        }
-//    }
-//    
-//    return true
-//}
-//
-//for number in 1...100 {
-//    if isPrime(number) {
-//        print(number)
-//    }
-//}
-//
-//func celsiusToFahrenheit(_ celsius: Double) -> Double {
-//    return (celsius * 9/5) + 32
-//}
-//
-//func celsiusToKelvin(_ celsius: Double) -> Double {
-//    return celsius + 273.15
-//}
-//
-//func fahrenheitToCelsius(_ fahrenheit: Double) -> Double {
-//    return (fahrenheit - 32) * 5/9
-//}
-//
-//func fahrenheitToKelvin(_ fahrenheit: Double) -> Double {
-//    return (fahrenheit + 459.67) * 5/9
-//}
-//
-//func kelvinToCelsius(_ kelvin: Double) -> Double {
-//    return kelvin - 273.15
-//}
-//
-//func kelvinToFahrenheit(_ kelvin: Double) -> Double {
-//    return (kelvin * 9/5) - 459.67
-//}
-//
-//func temperatureConverter() {
-//    print("Enter the temperature value: ", terminator: "")
-//    
-//    if let input = readLine() {
-//        if let temperature = Double(input.replacingOccurrences(of: ",", with: ".")) {
-//            
-//            print("Enter the unit of temperature (C for Celsius, F for Fahrenheit, K for Kelvin): ", terminator: "")
-//            if let unit = readLine()?.uppercased() {
-//                switch unit {
-//                case "C":
-//                    let fahrenheit = celsiusToFahrenheit(temperature)
-//                    let kelvin = celsiusToKelvin(temperature)
-//                    print("\(temperature)°C = \(fahrenheit)°F")
-//                    print("\(temperature)°C = \(kelvin) K")
-//                    
-//                case "F":
-//                    let celsius = fahrenheitToCelsius(temperature)
-//                    let kelvin = fahrenheitToKelvin(temperature)
-//                    print("\(temperature)°F = \(celsius)°C")
-//                    print("\(temperature)°F = \(kelvin) K")
-//                    
-//                case "K":
-//                    let celsius = kelvinToCelsius(temperature)
-//                    let fahrenheit = kelvinToFahrenheit(temperature)
-//                    print("\(temperature) K = \(celsius)°C")
-//                    print("\(temperature) K = \(fahrenheit)°F")
-//                    
-//                default:
-//                    print("Invalid unit. Please enter C, F, or K.")
-//                }
-//                
-//            } else {
-//                print("Invalid input for unit.")
-//            }
-//            
-//        } else {
-//            print("Invalid temperature value.")
-//        }
-//    } else {
-//        print("Error reading input.")
-//    }
-//}
-//
-//temperatureConverter()
+func isPrime(_ number: Int) -> Bool {
+    if number < 2 {
+        return false
+    }
+    
+    for i in 2..<number {
+        if number % i == 0 {
+            return false
+        }
+    }
+    
+    return true
+}
+
+for number in 1...100 {
+    if isPrime(number) {
+        print(number)
+    }
+}
+
+func celsiusToFahrenheit(_ celsius: Double) -> Double {
+    return (celsius * 9/5) + 32
+}
+
+func celsiusToKelvin(_ celsius: Double) -> Double {
+    return celsius + 273.15
+}
+
+func fahrenheitToCelsius(_ fahrenheit: Double) -> Double {
+    return (fahrenheit - 32) * 5/9
+}
+
+func fahrenheitToKelvin(_ fahrenheit: Double) -> Double {
+    return (fahrenheit + 459.67) * 5/9
+}
+
+func kelvinToCelsius(_ kelvin: Double) -> Double {
+    return kelvin - 273.15
+}
+
+func kelvinToFahrenheit(_ kelvin: Double) -> Double {
+    return (kelvin * 9/5) - 459.67
+}
+
+func temperatureConverter() {
+    print("Enter the temperature ", terminator: "")
+    
+    if let input = readLine() {
+        if let temperature = Double(input.replacingOccurrences(of: ",", with: ".")) {
+            
+            print("Enter the unit of temperature (C for Celsius, F for Fahrenheit, K for Kelvin): ", terminator: "")
+            if let unit = readLine()?.uppercased() {
+                switch unit {
+                case "C":
+                    let fahrenheit = celsiusToFahrenheit(temperature)
+                    let kelvin = celsiusToKelvin(temperature)
+                    print("\(temperature)°C = \(fahrenheit)°F")
+                    print("\(temperature)°C = \(kelvin) K")
+                    
+                case "F":
+                    let celsius = fahrenheitToCelsius(temperature)
+                    let kelvin = fahrenheitToKelvin(temperature)
+                    print("\(temperature)°F = \(celsius)°C")
+                    print("\(temperature)°F = \(kelvin) K")
+                    
+                case "K":
+                    let celsius = kelvinToCelsius(temperature)
+                    let fahrenheit = kelvinToFahrenheit(temperature)
+                    print("\(temperature) K = \(celsius)°C")
+                    print("\(temperature) K = \(fahrenheit)°F")
+                    
+                default:
+                    print("Invalid unit. Please enter C, F, or K.")
+                }
+                
+            } else {
+                print("Invalid input for unit.")
+            }
+            
+        } else {
+            print("Invalid temperature value.")
+        }
+    } else {
+        print("Error reading input.")
+    }
+}
+
+temperatureConverter()
 
 
 struct ShoppingListStructure {

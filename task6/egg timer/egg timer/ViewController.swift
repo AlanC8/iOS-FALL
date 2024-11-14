@@ -10,13 +10,13 @@ import AVFoundation
 
 
 class ViewController: UIViewController {
-    // MARK: - Properties
+
     private var timer: Timer?
     private var startTime: Date?
     private var selectedEggType: EggType?
     private var audioPlayer: AVAudioPlayer?
     
-    // MARK: - UI Elements
+
     private lazy var stackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
@@ -26,7 +26,6 @@ class ViewController: UIViewController {
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
-    
     private lazy var eggButtons: [UIButton] = {
         return EggType.allCases.map { type in
             let button = UIButton(type: .system)
@@ -54,20 +53,20 @@ class ViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
-        label.font = .monospacedDigitSystemFont(ofSize: 70, weight: .bold) // Используем моноширинный шрифт
+        label.font = .monospacedDigitSystemFont(ofSize: 70, weight: .bold)
         label.textColor = .label
-        label.text = "0" // Начальное значение
+        label.text = "0"
         return label
     }()
     
-    // MARK: - Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         setupAudioPlayer()
     }
     
-    // MARK: - Setup Methods
+
     private func setupUI() {
         view.backgroundColor = .systemBackground
         
@@ -101,7 +100,7 @@ class ViewController: UIViewController {
         }
     }
     
-    // MARK: - Button Action
+    
     @objc private func eggTapped(_ sender: UIButton) {
         timer?.invalidate()
         

@@ -6,10 +6,9 @@
 //
 import UIKit
 class MovieCollectionViewCell: UICollectionViewCell {
-    // MARK: - Properties
     static let identifier = "MovieCollectionViewCell"
     private var imageLoadTask: URLSessionDataTask?
-    // MARK: - UI Elements
+    
     private let posterImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -44,7 +43,6 @@ class MovieCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    // MARK: - Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -54,7 +52,6 @@ class MovieCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Setup Methods
     private func setupUI() {
         contentView.backgroundColor = .systemBackground
         contentView.layer.cornerRadius = 12
@@ -82,34 +79,29 @@ class MovieCollectionViewCell: UICollectionViewCell {
         ])
     }
     
-    // MARK: - Configuration
     func configure(with movie: Movie) {
         titleLabel.text = movie.title
         yearLabel.text = String(movie.year)
         genreLabel.text = movie.genre
         
-        // Отменяем предыдущую загрузку если она есть
         imageLoadTask?.cancel()
         
-        // Показываем placeholder пока грузится изображение
         posterImageView.image = nil
         posterImageView.backgroundColor = .systemGray6
         
-        // Загружаем изображение
         ImageLoader.shared.loadImage(from: movie.posterImage) { [weak self] image in
             self?.posterImageView.backgroundColor = image == nil ? .systemGray6 : .clear
             self?.posterImageView.image = image
         }
     }
     
-    // MARK: - Reuse
     override func prepareForReuse() {
-            super.prepareForReuse()
-            imageLoadTask?.cancel()
-            posterImageView.image = nil
-            posterImageView.backgroundColor = .systemGray6
-            titleLabel.text = nil
-            yearLabel.text = nil
-            genreLabel.text = nil
-        }
+        super.prepareForReuse()
+        imageLoadTask?.cancel()
+        posterImageView.image = nil
+        posterImageView.backgroundColor = .systemGray6
+        titleLabel.text = nil
+        yearLabel.text = nil
+        genreLabel.text = nil
+    }
 }

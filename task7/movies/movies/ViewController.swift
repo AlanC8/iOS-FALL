@@ -9,17 +9,14 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    // MARK: - Properties
     private var collectionView: UICollectionView!
     private let movies = Movie.mockData
     
-    // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
     
-    // MARK: - Setup Methods
     private func setupUI() {
         title = "Favorite Movies"
         view.backgroundColor = .systemBackground
@@ -36,7 +33,6 @@ class ViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        
         view.addSubview(collectionView)
         setupCollectionViewConstraints()
     }
@@ -59,7 +55,6 @@ class ViewController: UIViewController {
     }
 }
 
-// MARK: - UICollectionView DataSource
 extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return movies.count
@@ -77,7 +72,7 @@ extension ViewController: UICollectionViewDataSource {
     }
 }
 
-// MARK: - UICollectionView Delegate
+
 extension ViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let movie = movies[indexPath.item]
@@ -86,7 +81,6 @@ extension ViewController: UICollectionViewDelegate {
     }
 }
 
-// MARK: - UICollectionView Flow Layout Delegate
 extension ViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                        layout collectionViewLayout: UICollectionViewLayout,

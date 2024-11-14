@@ -5,19 +5,10 @@
 //  Created by Алан Абзалханулы on 25.10.2024.
 //
 
-//
-//  ViewController.swift
-//  movies
-//
-//  Created by Алан Абзалханулы on 25.10.2024.
-//
-
 import UIKit
-
 
 class MovieDetailViewController: UIViewController {
     
-    // MARK: - Properties
     private let movie: Movie
     
     private let scrollView: UIScrollView = {
@@ -87,7 +78,6 @@ class MovieDetailViewController: UIViewController {
         return label
     }()
     
-    // MARK: - Initialization
     init(movie: Movie) {
         self.movie = movie
         super.init(nibName: nil, bundle: nil)
@@ -97,14 +87,12 @@ class MovieDetailViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         configureWithMovie()
     }
     
-    // MARK: - Setup Methods
     private func setupUI() {
         view.backgroundColor = .systemBackground
         
@@ -166,7 +154,7 @@ class MovieDetailViewController: UIViewController {
         ratingLabel.text = "Rating: ⭐️ \(movie.rating)/10"
         descriptionLabel.text = movie.description
         
-        // Загружаем изображение
+
         posterImageView.backgroundColor = .systemGray6
         ImageLoader.shared.loadImage(from: movie.posterImage) { [weak self] image in
             self?.posterImageView.backgroundColor = image == nil ? .systemGray6 : .clear

@@ -12,7 +12,6 @@ class ImageLoader {
     private var imageCache = NSCache<NSString, UIImage>()
     
     func loadImage(from urlString: String, completion: @escaping (UIImage?) -> Void) {
-        // Проверяем кэш
         if let cachedImage = imageCache.object(forKey: urlString as NSString) {
             completion(cachedImage)
             return
@@ -31,8 +30,6 @@ class ImageLoader {
                 }
                 return
             }
-            
-            // Сохраняем в кэш
             self?.imageCache.setObject(image, forKey: urlString as NSString)
             
             DispatchQueue.main.async {
